@@ -14,7 +14,7 @@
             color: #333;
         }
         header {
-            background-color: #005f73;
+            background-color: #0a9396;
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -46,17 +46,22 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
-        }
-        .idea:hover {
-            transform: translateY(-5px);
+            cursor: pointer;
+            overflow: hidden;
         }
         .idea h2 {
-            margin-top: 0;
             color: #0a9396;
+            margin: 0;
         }
-        .idea p {
-            font-size: 1rem;
-            line-height: 1.6;
+        .idea .details {
+            display: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        .idea:hover .details {
+            display: block;
+            max-height: 1000px;
         }
     </style>
     <script>
@@ -84,63 +89,47 @@
         </div>
         <p><b>NB: "This content is for informational purposes only and does not constitute professional or academic advice."</b></p>
         <div class="idea">
-            <h3>Augmented Reality for Scientific Experiments</h3>
-            <h4>1. Possible Target Audience (Customer Base)</h4>
-            <ul>
-                <li><strong>Educational Institutions:</strong> Schools, colleges, and universities looking for innovative teaching methods.</li>
-                <li><strong>Students & Educators:</strong> Learners from high school to university level who need hands-on experience in science.</li>
-                <li><strong>EdTech Companies:</strong> Businesses that offer digital learning solutions and can integrate AR into their platforms.</li>
-                <li><strong>Research Labs & Training Centers:</strong> Organizations training scientists or professionals in complex experiments.</li>
-                <li><strong>Homeschooling & Self-Learners:</strong> Individuals who want access to advanced scientific learning without expensive lab equipment.</li>
-            </ul>
-    
-            <h3>2. Problem Being Solved</h3>
-            <ul>
-                <li><strong>High Costs:</strong> Science labs require expensive equipment, materials, and maintenance.</li>
-                <li><strong>Safety Risks:</strong> Dangerous chemical reactions, dissections, or physics experiments carry hazards, doing them this way eliminates that risk.</li>
-                <li><strong>Limited Access:</strong> Many schools lack proper lab facilities, restricting hands-on learning, this method may be cheaper.</li>
-                <li><strong>Environmental Concerns:</strong> Reducing waste from chemical experiments and biological specimens.</li>
-            </ul>
-    
-            <h3>3. Business Model - How Revenue Is Generated</h3>
-            <ul>
-                <li><strong>Subscription Model:</strong> Schools, universities, and individual learners pay a monthly or yearly fee for access.</li>
-                <li><strong>One-Time Purchase:</strong> Institutions or individuals can buy the software/license outright.</li>
-                <li><strong>Freemium Model:</strong> Offer basic features for free and charge for premium content (e.g., advanced experiments).</li>
-                <li><strong>Partnerships & Licensing:</strong> Sell AR modules to EdTech companies or integrate into learning platforms.</li>
-                <li><strong>Enterprise Sales:</strong> Custom solutions for research labs, medical schools, or corporate training.</li>
-            </ul>
-    
-            <h3>4. Core Competency (Competitive Advantage)</h3>
-            <ul>
-                <li><strong>Cost-Effective Science Labs:</strong> Schools can save on lab infrastructure and materials.</li>
-                <li><strong>Immersive Learning Experience:</strong> AR enhances engagement and understanding more than textbooks or videos.</li>
-                <li><strong>Real-Time Feedback & AI Assistance:</strong> AR can guide students step-by-step, reducing mistakes.</li>
-                <li><strong>Portability & Scalability:</strong> Students can conduct experiments anytime, anywhere, using a tablet or AR headset.</li>
-                <li><strong>Eco-Friendly & Ethical:</strong> Virtual dissections eliminate the need for real animal specimens, and virtual chemistry labs reduce chemical waste.</li>
-            </ul>
-    
-            <h3>5. How the Product Can Be Made (Non-Technical Explanation)</h3>
-            <ul>
-                <li><strong>Create 3D Models & Simulations:</strong> Digital versions of lab equipment, biological specimens, and chemical reactions are designed.</li>
-                <li><strong>Build AR Software:</strong> A mobile app, tablet app, or AR headset application overlays these models into the real world.</li>
-                <li><strong>Interactive Features:</strong> Users can manipulate objects (e.g., mix virtual chemicals, dissect a 3D frog) through touch or hand gestures.</li>
-                <li><strong>AI-Powered Guidance:</strong> Built-in AI explains steps, corrects mistakes, and provides learning feedback.</li>
-                <li><strong>Cloud-Based Access:</strong> Students and teachers can access experiments anytime, without downloading heavy software.</li>
-            </ul>
+            <h2>Augmented Reality for Scientific Experiments</h2>
+            <p><i>AR technology enables immersive scientific experiments without real-world hazards.</i></p>
+            <div class="details">
+                <p>Biology students can perform virtual dissections, Chemistry students can mix chemicals safely, and Physics students can simulate zero-gravity experiments.</p>
+                <h4>1. Possible Target Audience (Customer Base)</h4>
+                <ul>
+                    <li><strong>Educational Institutions:</strong> Schools, colleges, and universities looking for innovative teaching methods.</li>
+                    <li><strong>Students & Educators:</strong> Learners from high school to university level who need hands-on experience in science.</li>
+                    <li><strong>EdTech Companies:</strong> Businesses that offer digital learning solutions and can integrate AR into their platforms.</li>
+                    <li><strong>Research Labs & Training Centers:</strong> Organizations training scientists or professionals in complex experiments.</li>
+                    <li><strong>Homeschooling & Self-Learners:</strong> Individuals who want access to advanced scientific learning without expensive lab equipment.</li>
+                </ul>
+                <h4>2. Problem Being Solved</h4>
+                <ul>
+                    <li><strong>High Costs:</strong> Science labs require expensive equipment, materials, and maintenance.</li>
+                    <li><strong>Safety Risks:</strong> Dangerous chemical reactions, dissections, or physics experiments carry hazards, doing them this way eliminates that risk.</li>
+                    <li><strong>Limited Access:</strong> Many schools lack proper lab facilities, restricting hands-on learning, this method may be cheaper.</li>
+                    <li><strong>Environmental Concerns:</strong> Reducing waste from chemical experiments and biological specimens.</li>
+                </ul>
+            </div>
         </div>
-        
         <div class="idea">
             <h2>Halophiles for Desalination</h2>
-            <p>Using salt-eating bacteria to desalinate seawater efficiently and reduce waste brine, potentially lowering desalination costs.</p>
+            <p><i>Using salt-eating bacteria to desalinate seawater efficiently and reduce waste brine.</i></p>
+            <div class="details">
+                <p>Potentially lowering desalination costs and making fresh water more accessible.</p>
+            </div>
         </div>
         <div class="idea">
             <h2>Sports Facility Mapping App</h2>
-            <p>An app that maps all public sports facilities using Google Maps API and on-the-ground agents. Revenue can be generated through ads.</p>
+            <p><i>An app that maps all public sports facilities using Google Maps API.</i></p>
+            <div class="details">
+                <p>On-the-ground agents verify data. Revenue can be generated through ads.</p>
+            </div>
         </div>
         <div class="idea">
             <h2>AI-Powered Background Noise Removal</h2>
-            <p>An extension that removes background noise from video calls using AI, allowing meetings in noisy environments.</p>
+            <p><i>An extension that removes background noise from video calls using AI.</i></p>
+            <div class="details">
+                <p>Allows meetings in noisy environments without disruptions.</p>
+            </div>
         </div>
     </div>
 </body>
