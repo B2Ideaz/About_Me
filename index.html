@@ -6,15 +6,16 @@
     <title>Business Ideas</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Keep existing styles, but remove the .idea:hover .details part */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #f9f9f9; /* Or use your gradient from styles.css */
             color: #333;
         }
         header {
-            background-color: #0a9396;
+            background-color: #0a9396; /* Or #333 from styles.css */
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -45,39 +46,34 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
             cursor: pointer;
-            overflow: hidden;
+            overflow: hidden; /* Keep this */
         }
         .idea h2 {
-            color: #0a9396;
-            margin: 0;
+            color: #0a9396; /* Or #333 from styles.css */
+            margin: 0 0 10px 0; /* Add some bottom margin */
+            display: flex; /* Use flexbox for alignment */
+            justify-content: space-between; /* Pushes arrow to the right */
+            align-items: center; /* Vertically align title and arrow */
+        }
+        .idea h2 .arrow {
+            font-size: 1.2em; /* Make arrow slightly larger */
+            margin-left: 10px; /* Space between title and arrow */
         }
         .idea .details {
-            display: none;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-in-out;
+            /* Remove display: none; and max-height: 0; */
+            /* Control visibility with JS/classes */
+            max-height: 0; /* Start hidden */
+            overflow: hidden; /* Keep this */
+            transition: max-height 0.3s ease-out; /* Smooth transition */
         }
-        .idea:hover .details {
-            display: block;
-            max-height: 1000px;
+        /* New class to show details */
+        .idea .details.active {
+             max-height: 1000px; /* Or a sufficiently large value */
+             /* Optional: Add padding-top if needed */
+             /* padding-top: 15px; */
         }
     </style>
-    <script>
-        function searchIdeas() {
-            let query = document.getElementById("searchInput").value.toLowerCase();
-            let ideas = document.querySelectorAll(".idea");
-            ideas.forEach(idea => {
-                let text = idea.textContent.toLowerCase();
-                if (new RegExp(query, "i").test(text)) {
-                    idea.style.display = "block";
-                } else {
-                    idea.style.display = "none";
-                }
-            });
-        }
-    </script>
 </head>
 <body>
     <header>
@@ -88,8 +84,9 @@
             <input type="text" id="searchInput" onkeyup="searchIdeas()" placeholder="Search for ideas...">
         </div>
         <p><b>NB: "This content is for informational purposes only and does not constitute professional or academic advice."</b></p>
-        <div class="idea">
-            <h2>Augmented Reality for Scientific Experiments</h2>
+
+        <div class="idea" onclick="toggleDetails(this)">
+             <h2>Augmented Reality for Scientific Experiments <span class="arrow">⌄</span></h2>
             <p><i>AR technology enables immersive scientific experiments without real-world hazards.</i></p>
             <div class="details">
                 <p>Biology students can perform virtual dissections, Chemistry students can mix chemicals safely, and Physics students can simulate zero-gravity experiments.</p>
@@ -102,7 +99,7 @@
                     <li>Homeschooling & Self-Learners: Individuals who want access to advanced scientific learning without expensive lab equipment.</li>
                 </ul>
                 <h4>2. Problem Being Solved</h4>
-                <ul>
+                 <ul>
                     <li>High Costs: Science labs require expensive equipment, materials, and maintenance.</li>
                     <li>Safety Risks: Dangerous chemical reactions, dissections, or physics experiments carry hazards, doing them this way eliminates that risk.</li>
                     <li>Limited Access: Many schools lack proper lab facilities, restricting hands-on learning, this method may be cheaper.</li>
@@ -116,7 +113,6 @@
                     <li>Partnerships & Licensing: Sell AR modules to EdTech companies or integrate into learning platforms.</li>
                     <li>Enterprise Sales: Custom solutions for research labs, medical schools, or corporate training.</li>
                 </ul>
-        
                 <h3>4. Core Competency (Competitive Advantage)</h3>
                 <ul>
                     <li>Cost-Effective Science Labs: Schools can save on lab infrastructure and materials.</li>
@@ -125,7 +121,6 @@
                     <li>Portability & Scalability: Students can conduct experiments anytime, anywhere, using a tablet or AR headset.</li>
                     <li>Eco-Friendly & Ethical: Virtual dissections eliminate the need for real animal specimens, and virtual chemistry labs reduce chemical waste.</li>
                 </ul>
-        
                 <h3>5. How the Product Can Be Made (Non-Technical Explanation)</h3>
                 <ul>
                     <li>Create 3D Models & Simulations: Digital versions of lab equipment, biological specimens, and chemical reactions are designed.</li>
@@ -136,27 +131,62 @@
                 </ul>
             </div>
         </div>
-        <div class="idea">
-            <h2>Halophiles for Desalination</h2>
+
+        <div class="idea" onclick="toggleDetails(this)">
+             <h2>Halophiles for Desalination <span class="arrow">⌄</span></h2>
             <p><i>Using salt-eating bacteria to desalinate seawater efficiently and reduce waste brine.</i></p>
             <div class="details">
                 <p>Potentially lowering desalination costs and making fresh water more accessible.</p>
             </div>
         </div>
-        <div class="idea">
-            <h2>Sports Facility Mapping App</h2>
+
+        <div class="idea" onclick="toggleDetails(this)">
+             <h2>Sports Facility Mapping App <span class="arrow">⌄</span></h2>
             <p><i>An app that maps all public sports facilities using Google Maps API.</i></p>
             <div class="details">
                 <p>On-the-ground agents verify data. Revenue can be generated through ads.</p>
             </div>
         </div>
-        <div class="idea">
-            <h2>AI-Powered Background Noise Removal</h2>
+
+        <div class="idea" onclick="toggleDetails(this)">
+             <h2>AI-Powered Background Noise Removal <span class="arrow">⌄</span></h2>
             <p><i>An extension that removes background noise from video calls using AI.</i></p>
             <div class="details">
                 <p>Allows meetings in noisy environments without disruptions.</p>
             </div>
         </div>
     </div>
+
+    <script>
+        // Keep your existing searchIdeas function
+        function searchIdeas() {
+            let query = document.getElementById("searchInput").value.toLowerCase();
+            let ideas = document.querySelectorAll(".idea");
+            ideas.forEach(idea => {
+                let text = idea.textContent.toLowerCase();
+                // Using test() method is generally better for regex checks
+                if (new RegExp(query, "i").test(text)) {
+                    idea.style.display = "flex"; // Use flex or block depending on your layout needs
+                } else {
+                    idea.style.display = "none";
+                }
+            });
+        }
+
+        // Add the new toggleDetails function
+        function toggleDetails(element) {
+            const details = element.querySelector('.details');
+            const arrow = element.querySelector('.arrow');
+
+            // Check if details section is currently active (visible)
+            if (details.classList.contains('active')) {
+                details.classList.remove('active');
+                arrow.textContent = '⌄'; // Change arrow to down
+            } else {
+                details.classList.add('active');
+                arrow.textContent = '^'; // Change arrow to up
+            }
+        }
+    </script>
 </body>
 </html>
