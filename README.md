@@ -1,2 +1,2 @@
-# About_Me
+# Business Ideas
 ...
